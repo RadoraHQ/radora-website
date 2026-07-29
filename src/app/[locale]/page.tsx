@@ -1,9 +1,30 @@
 import Navbar from "@/components/Navbar";
 
-export default function HomePage() {
+type Props = {
+  params: Promise<{ locale: "fa" | "en" }>;
+};
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+
+  const content = {
+    fa: {
+      subtitle: "ساخت اعتماد، خلق نوآوری",
+      description:
+        "طراحی سایت، توسعه نرم‌افزار، اتوماسیون و راهکارهای هوش مصنوعی برای کسب‌وکارها.",
+    },
+    en: {
+      subtitle: "Building trust. Creating innovation.",
+      description:
+        "Modern websites, software, automation, and AI-powered digital solutions for businesses worldwide.",
+    },
+  };
+
+  const t = content[locale];
+
   return (
     <main className="min-h-screen bg-[#0B1220] text-white pt-16">
-      <Navbar />
+      <Navbar locale={locale} />
 
       <section className="flex min-h-screen items-center justify-center px-6">
         <div className="max-w-4xl text-center">
@@ -17,13 +38,10 @@ export default function HomePage() {
             Radora
           </h1>
 
-          <p className="mt-6 text-xl text-gray-300 md:text-2xl">
-            Building trust. Creating innovation.
-          </p>
+          <p className="mt-6 text-xl text-gray-300 md:text-2xl">{t.subtitle}</p>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-            Modern websites, software, automation, and AI-powered digital
-            solutions for businesses worldwide.
+            {t.description}
           </p>
         </div>
       </section>
