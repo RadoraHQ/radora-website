@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "cta": "Get in Touch"
+  },
+  "hero": {
+    "title": "Radora",
+    "subtitle": "Building trust. Creating innovation.",
+    "description": "Modern websites, software, automation, and AI-powered digital solutions for businesses worldwide."
+  }
+}
