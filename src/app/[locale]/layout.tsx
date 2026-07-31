@@ -1,29 +1,31 @@
-import {Inter} from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Vazirmatn } from "next/font/google";
 
 const inter = Inter({
-  subsets: ["latin"]
+  subsets: ["latin"],
+  display: "swap",
 });
 
-const vazirmatn = localFont({
-  src: "../../../node_modules/vazirmatn/fonts/webfonts/Vazirmatn-Regular.woff2",
-  display: "swap"
+const vazirmatn = Vazirmatn({
+  subsets: ["arabic"],
+  display: "swap",
 });
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }) {
-  const {locale} = await params;
+  const { locale } = await params;
 
   return (
-    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
-      <body className={locale === "fa" ? vazirmatn.className : inter.className}>
-        {children}
-      </body>
-    </html>
+    <div
+      lang={locale}
+      dir={locale === "fa" ? "rtl" : "ltr"}
+      className={locale === "fa" ? vazirmatn.className : inter.className}
+    >
+      {children}
+    </div>
   );
 }

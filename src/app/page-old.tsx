@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0B1220] text-white pt-16">
-      <Navbar />
+      <Navbar locale="fa" />
       <section className="flex min-h-screen items-center justify-center px-6">
         <div className="max-w-4xl text-center">
           <div className="mb-8 flex justify-center">
